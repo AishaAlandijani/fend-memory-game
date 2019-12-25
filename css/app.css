@@ -1,0 +1,232 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Turret Road', cursive;
+}
+
+h1 {
+  font-family: 'Righteous', cursive;
+    font-weight: 300;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* styles for the score panel **/
+.score-panel {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+  margin-left: 1rem;
+  float: right;
+  cursor: pointer;
+}
+.fa-star {
+	color: #FFD700;
+}
+.fa-stopwatch,
+.timer {
+  float: left;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+  width: 75%;
+  margin: 0 0 3em;
+  background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.deck .card {
+  height: 3.5rem;
+  width: 3.5rem;
+  background: #2c3d43;
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  margin: 0.2rem 0.2rem;
+}
+
+.deck .card.open {
+  transform: rotateY(0);
+  background: #02d3a4;
+  cursor: default;
+}
+
+.deck .card.show {
+  font-size: 33px;
+}
+
+.deck .card.match {
+  cursor: default;
+  background: #e2c0b4;
+  font-size: 33px;
+}
+
+.deck .card.unmatch {
+	background: #c8043e;
+}
+
+.deck .card.disabled {
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/*
+ * Styles for the winning modal
+ */
+
+.popup {
+  margin: 70px auto;
+	padding: 20px;
+	background: url('https://i.gifer.com/4f7u.gif');
+	border-radius: 5px;
+	width: 85%;
+	position: relative;
+}
+
+.popup h2 {
+	margin-top: 0;
+	color: #ffffff;
+}
+
+.popup .exit {
+  float: right;
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	font-size: 40px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.popup .exit:hover {
+	color: #E5F720;
+}
+
+.popup ,
+.content {
+	max-height: 75%;
+	overflow: auto;
+	text-align: center;
+  color: #ffffff;
+}
+
+.inout {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	visibility: hidden;
+	opacity: 0;
+}
+
+.inout:target {
+	visibility: visible;
+	opacity: 1;
+}
+
+.show {
+	visibility: visible !important;
+	opacity: 100 !important;
+}
+
+#starRating li {
+	display: inline-block;
+}
+
+#play-again {
+	background-color: #c4de1a;
+	padding: 0.7rem 1rem;
+	font-size: 1.1rem;
+	display: block;
+	margin: 0 auto;
+	width: 50%;
+	color: #ffffff;
+	border-radius: 5px;
+}
+/*
+ * Media queries
+ */
+@media (max-width: 320px) {
+	.deck {
+		width: 85%;
+	}
+
+	.deck .card {
+		height: 4.7rem;
+		width: 4.7rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.container {
+		font-size: 22px;
+	}
+
+	.deck {
+		width: 660px;
+		height: 680px;
+	}
+
+	.deck .card {
+		height: 125px;
+		width: 125px;
+	}
+
+	.popup {
+		width: 60%;
+	}
+}
